@@ -1,4 +1,5 @@
 # 🌀 SemeAi + Pletinnya — Proof-of-Resonance v3.1
+[![License: MIT + PoR Protected](https://img.shields.io/badge/License-MIT+PoR-green.svg)](LICENSE)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![Version](https://img.shields.io/badge/Release-v3.1-blue.svg)](https://github.com/SemeAIPletinnya/SemeAi_ProofOfResonance/releases)
@@ -25,3 +26,15 @@ This repository presents the open structure of the **SemeAi + Pletinnya** system
 
 > _Created by Anton Semenenko — Architect of Resonant Cognition · 2025_  
 > _“Resonance ends only where silence forgets itself.”_
+---
+
+### 🧭 Resonance Certification
+
+This repository is part of the **Proof-of-Resonance (PoR)** ecosystem —  
+an open intellectual framework authored by **Anton Semenenko**,  
+bridging cognition, architecture, and harmonic logic.
+
+[![Resonance Certified](https://img.shields.io/badge/Resonance-Certified-blueviolet.svg)](https://github.com/SemeAiPletinnya/SemeAi_ProofOfResonance)
+[![PoR Framework](https://img.shields.io/badge/Framework-PoR_v3.1-lightgrey.svg)](https://github.com/SemeAiPletinnya/SemeAi_ProofOfResonance)
+
+> _“Every signal remembers its silence.”_
