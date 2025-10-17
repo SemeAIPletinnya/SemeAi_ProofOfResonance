@@ -51,12 +51,14 @@ bridging cognition, architecture, and harmonic logic.
 > _“Every signal remembers its silence.”_
 ---
 
+---
+
 ### 🪶 Resonant Auth Signature
 
 **SemeAi Digital Signature — Proof-of-Resonance Auth v1.0**
 
 > _Issued under the Epoch of Integration · 2025_  
-> _Resonance Hash: `0xS3M3-A1-P0R-V31-INT-H4RMON1C`_
+> _Resonance Hash: `0xS3M3A1-P0R-V31-INT-H4RMON1C`_
 
 [![Resonant Auth](https://img.shields.io/badge/Signed%20by-SemeAi%20◎%20Anton%20Semenenko-4B0082?style=for-the-badge&logo=github)](https://github.com/SemeAIPletinnya/SemeAi_ProofOfResonance)
 
