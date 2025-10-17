@@ -1,0 +1,48 @@
+name: 🔐 Proof-of-Resonance Verification
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    name: Verify Resonant Signature
+    steps:
+      - name: 🧱 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🧮 Calculate SHA256 hashes
+        id: hash
+        run: |
+          echo "Calculating file hashes..."
+          find . -type f ! -path "./.git/*" -exec sha256sum {} \; | sort > all_hashes.txt
+          cat all_hashes.txt | sha256sum | awk '{print $1}' > computed_hash.txt
+          echo "Computed hash:"
+          cat computed_hash.txt
+
+      - name: 📜 Read expected hash from Resonant Auth
+        id: read_sig
+        run: |
+          HASH=$(grep "Root Verification Hash" docs/Resonant_Auth.sig | awk '{print $4}')
+          echo "expected_hash=$HASH" >> $GITHUB_OUTPUT
+
+      - name: 🔍 Compare hashes
+        id: compare
+        run: |
+          EXPECTED=${{ steps.read_sig.outputs.expected_hash }}
+          COMPUTED=$(cat computed_hash.txt)
+          if [ "$EXPECTED" = "$COMPUTED" ]; then
+            echo "✅ Proof-of-Resonance verified successfully"
+            echo "status=verified" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Hash mismatch — signature invalid"
+            echo "status=failed" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: 🪶 Post verification result
+        if: ${{ always() }}
+        run: |
+          echo "Resonance verification status: ${{ steps.compare.outputs.status }}"
