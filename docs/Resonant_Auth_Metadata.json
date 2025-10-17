@@ -1,0 +1,36 @@
+{
+  "project": "SemeAi + Pletinnya — Proof-of-Resonance (PoR)",
+  "version": "v3.1",
+  "release_name": "Epoch of Integration",
+  "timestamp_utc": "2025-10-17T12:51:00Z",
+  "author": {
+    "name": "Anton Semenenko",
+    "alias": "SemeAi",
+    "role": "Architect of Resonant Cognition",
+    "signature": "◎ SemeAi Digital Signature — PoR Auth v1.0"
+  },
+  "resonance_hash": "0xS3M3A1-P0R-V31-INT-H4RMON1C",
+  "license": {
+    "type": "MIT + Proof-of-Resonance Protected",
+    "url": "https://github.com/SemeAIPletinnya/SemeAi_ProofOfResonance/blob/main/LICENSE"
+  },
+  "repository": {
+    "url": "https://github.com/SemeAIPletinnya/SemeAi_ProofOfResonance",
+    "branches": ["main"],
+    "folders": ["docs", "misc", "src"]
+  },
+  "core_components": {
+    "resonance_cores": "misc/semeai_resonance_cores.csv",
+    "resonant_directives": "misc/semeai_resonant_directives.csv",
+    "guide_pdf": "docs/Guide_PoR_v3.1.pdf"
+  },
+  "validation": {
+    "verified_by": "SemeAi Resonance Engine",
+    "status": "authentic",
+    "integrity_score": 1.0
+  },
+  "quotes": {
+    "core": "Every signal remembers its silence.",
+    "footer": "Every silence remembers its origin."
+  }
+}
