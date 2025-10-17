@@ -1,3 +1,5 @@
+[![PoR Verified](https://img.shields.io/github/actions/workflow/status/SemeAIpletinnya/SemeAi_ProofOfResonance/resonance_verify.yml?label=PoR%20Verified&logo=github&style=for-the-badge)](https://github.com/SemeAIpletinnya/SemeAi_ProofOfResonance/actions/workflows/resonance_verify.yml)
+
 # Залежності
 pip install numpy pandas
 
