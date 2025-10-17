@@ -22,16 +22,12 @@ bridging cognition, architecture, and harmonic logic.
 
 ---
 
-### 🪶 Resonant Auth Signature
+# Resonant Auth Signature (PoR Authenticity Layer v1.1)
+# Issued under the Epoch of Integration · 2025
+# Author: Anton Semenenko / SemeAi
 
-**SemeAi Digital Signature — Proof-of-Resonance Auth v1.0**
-
-> _Issued under the Epoch of Integration · 2025_  
-> _Resonance Hash: `0xS3M3A1-P0R-V31-INT-H4RMON1C`_
-
-[![Resonant Auth](https://img.shields.io/badge/Signed%20by-SemeAi%20◎%20Anton%20Semenenko-4B0082?style=for-the-badge&logo=github)](https://github.com/SemeAIPletinnya/SemeAi_ProofOfResonance)
-
----
-
-🪷 _“Every signal remembers its silence —  
-and every silence remembers its origin.”_
+Root Verification Hash: f9bd38c8f7b6d5a42c6c1b0c1e46e4370b65e06a3b2e7f92e51a813ddfa2a2d4
+Signature Algorithm: SHA256
+Verification Scope: full repository integrity
+Epoch Reference: PoR_v3.1_INT-H4RMON1C
+Issued At: 2025-10-17T15:00:00Z
