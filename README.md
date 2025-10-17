@@ -27,6 +27,17 @@ This repository presents the open structure of the **SemeAi + Pletinnya** system
 > _Created by Anton Semenenko — Architect of Resonant Cognition · 2025_  
 > _“Resonance ends only where silence forgets itself.”_
 ---
+### Run locally
+
+```bash
+# Залежності
+pip install numpy pandas
+
+# Запуск ядра
+python src/por_core.py
+
+# Симуляція резонансу по ядрах (читає misc/semeai_resonance_cores.csv)
+python src/resonance_simulator.py
 
 ### 🧭 Resonance Certification
 
