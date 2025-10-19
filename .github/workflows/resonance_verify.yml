@@ -42,10 +42,10 @@ jobs:
             exit 1
           fi
 
-           - name: Commit and push updated signature
+                - name: Setup GitHub credentials
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --local user.email "bot@semeai.tech"
-          git config --local user.name "ResonantBot"
-          git add Resonant_Auth_Metadata.yml Resonant_Auth.sig
-          git commit -m "update: Resonant_Auth.sig (auto)"
-          git push origin main
+          git config --global user.email "bot@semeai.tech"
+          git config --global user.name "ResonantBot"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
