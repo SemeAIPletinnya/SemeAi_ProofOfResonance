@@ -42,7 +42,10 @@ jobs:
             exit 1
           fi
 
-      - name: 🪶 Post verification result
-        if: ${{ always() }}
+           - name: Commit and push updated signature
         run: |
-          echo "Resonance verification status: ${{ steps.compare.outputs.status }}"
+          git config --local user.email "bot@semeai.tech"
+          git config --local user.name "ResonantBot"
+          git add Resonant_Auth_Metadata.yml Resonant_Auth.sig
+          git commit -m "update: Resonant_Auth.sig (auto)"
+          git push origin main
