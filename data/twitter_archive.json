@@ -1,0 +1,15 @@
+{
+  "manifest_version": "1.0.0",
+  "source": "twitter",
+  "integration": "Proof-of-Resonance Feed",
+  "description": "Archive container for Anton Semenenko’s Twitter activity, prepared for X API v2 synchronization.",
+  "schema": {
+    "tweet_id": "string",
+    "text": "string",
+    "timestamp": "ISO8601",
+    "media": "array",
+    "resonance_score": "float"
+  },
+  "created_at": "2025-10-19T11:42:40+00:00",
+  "commit_tag": "📡 Twitter Archive — Block 003"
+}
