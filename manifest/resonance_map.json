@@ -1,0 +1,7 @@
+{
+  "generated": "2025-10-21 22:57:30Z",
+  "weights_csv": "data/resonant_weights.csv",
+  "core": "core/resonance_core.py",
+  "por_formula": "PoR = (S*H*T)^alpha / (D + eps)",
+  "notes": "Use weights to bias processing priority and visualization intensity."
+}

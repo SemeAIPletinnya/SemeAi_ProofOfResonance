@@ -1,0 +1,34 @@
+# codex_manifest.yml
+# Generated: 2025-10-21 22:57:30Z
+# Purpose: High-level topology for Codex/Copilot to continue generation.
+
+project: SemeAI_Resonant_Architecture_v2
+entry: core/resonance_core.py
+
+modules:
+  core:
+    - core/resonance_core.py
+  por_engine:
+    - por_engine/por_kernel.py
+    - por_engine/rsp_model.py
+  logic:
+    - logic/orchestrator.py
+    - logic/event_bus.py
+  sync:
+    - sync/io_adapter.py
+    - sync/github_bridge.py
+  utils:
+    - utils/hashing.py
+    - utils/logger.py
+
+data:
+  weights: data/resonant_weights.csv
+
+policies:
+  generation:
+    - Respect PoR weights when prioritizing tasks
+    - Keep public APIs small & composable
+    - Prefer pure functions where possible
+  quality:
+    - Add tests for por_engine
+    - Add type hints and docstrings
