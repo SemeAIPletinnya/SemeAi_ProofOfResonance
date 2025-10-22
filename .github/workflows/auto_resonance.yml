@@ -1,0 +1,37 @@
+name: Resonant Auto-Validation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install numpy pandas matplotlib
+
+      - name: Run Proof-of-Resonance Core
+        run: |
+          python src/por_engine.py
+
+      - name: Run Resonant Stability Field (RSP Heatmap)
+        run: |
+          python rsp_heatmap.py
+
+      - name: Upload Resonant Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Resonant_Heatmap
+          path: ./Figure*.png
