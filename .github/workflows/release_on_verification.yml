@@ -1,0 +1,35 @@
+name: Resonant Auto-Release
+
+on:
+  workflow_run:
+    workflows: ["PoR Verified Pipeline v2"]
+    types:
+      - completed
+
+jobs:
+  create-release:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v3.3-PoR-Verified
+          name: 🔏 PoR Verified — Resonant Stability Confirmed
+          body: |
+            Automatic release triggered by successful Proof-of-Resonance verification.
+            🪶 Version: 3.3  
+            ✅ Status: Verified & Stable  
+            📅 Timestamp: ${{ github.event.workflow_run.updated_at }}
+          files: |
+            ./artifacts/**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
