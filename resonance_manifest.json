@@ -1,13 +1,1 @@
-{
-  "manifest_version": "1.0.0",
-  "project": "SemeAI Resonance Core",
-  "description": "Second block of the Proof-of-Resonance Ledger — architectural manifest of Codex integration.",
-  "layers": {
-    "core": "Resonant Kernel",
-    "bridge": "Codex ↔ Proof-of-Resonance Synchronization Layer",
-    "memory": "Self-Resonant Context Mesh",
-    "human_interface": "Pulse Input Channel"
-  },
-  "created_at": "2025-10-20",
-  "commit_tag": "🧩 Resonance Manifest — Block 002"
-}
+{"version": "3.3", "verified": true, "timestamp": "2025-10-22 08:05:37"}
