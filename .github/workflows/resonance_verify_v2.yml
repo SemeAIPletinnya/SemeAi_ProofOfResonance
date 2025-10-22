@@ -62,3 +62,22 @@ jobs:
             ./Figure*.png
             ./data/por_results.csv
             ./resonance_manifest.json
+  release:
+    needs: verify-and-update
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v3.3-PoR-Verified
+          name: "PoR Verified v3.3 — Resonant Stability"
+          body: |
+            ✅ Resonant Verification passed successfully.
+            🔏 Proof-of-Resonance Core stabilized and confirmed.
+          files: |
+            ./data/por_results.csv
+            ./resonance_manifest.json
+            ./Figure*.png
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
