@@ -2,7 +2,7 @@ name: PoR Verified Pipeline v2
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
@@ -27,12 +27,12 @@ jobs:
 
       - name: Run Resonant Kernel
         run: |
-          echo "⚙️ Running Resonance Kernel..."
+          echo "🔧 Running Resonance Kernel..."
           python por_engine/por_kernel.py
 
       - name: Generate RSP Heatmap
         run: |
-          echo "🌡 Generating RSP Heatmap..."
+          echo "🌀 Generating RSP Heatmap..."
           python rsp_heatmap.py
 
       - name: Save PoR Result to CSV
@@ -43,19 +43,22 @@ jobs:
 
       - name: Update Manifest
         run: |
-          echo "🪶 Updating resonance_manifest.json..."
-          echo '{"version": "3.3", "verified": true, "timestamp": "'$(date '+%Y-%m-%d %H:%M:%S')'"}' > resonance_manifest.json
+          echo "📜 Updating resonance_manifest.json..."
+          echo "{\"version\": \"3.3\", \"verified\": true, \"timestamp\": \"$(date '+%Y-%m-%d %H:%M:%S')\"}" > resonance_manifest.json
 
       - name: Commit and Push
         run: |
-          git config user.name "SemeAi Resonant Bot"
+          git config user.name "SemeAI Resonant Bot"
           git config user.email "resonant@semeai.tech"
           git add data/por_results.csv resonance_manifest.json
-          git commit -m "🔏 PoR Verified — Resonant Stability Confirmed" || echo "No changes to commit"
+          git commit -m "🔏 PoR Verified – Resonant Stability Confirmed" || echo "No changes to commit"
           git push origin main
 
       - name: Upload Resonant Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Resonant_Heatmap_v3.3
-          path: ./Figure*.png
+          path: |
+            ./Figure*.png
+            ./data/por_results.csv
+            ./resonance_manifest.json
