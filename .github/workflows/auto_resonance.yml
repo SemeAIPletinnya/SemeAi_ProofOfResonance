@@ -2,37 +2,60 @@ name: Resonant Auto-Validation
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   validate:
+    name: Validate PoR Engine
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version: [ "3.9", "3.10", "3.11", "3.12" ]
+
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
-          pip install numpy pandas matplotlib
+          python -m pip install --upgrade pip
+          pip install numpy pandas matplotlib seaborn
 
+      # === MAIN PoR ENGINE ===
       - name: Run Proof-of-Resonance Core
         run: |
-          python src/por_engine.py
+          python por_engine/por_engine.py
 
+      # === HEATMAP ===
       - name: Run Resonant Stability Field (RSP Heatmap)
         run: |
           python rsp_heatmap.py
 
+      # === UPLOAD RESULTS ===
       - name: Upload Resonant Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Resonant_Heatmap
-          path: ./figure*.png
+          name: Resonant_Artifacts
+          path: |
+            *.png
+            output/
+            artifacts/
+
+      # === PROVENANCE SIGNING (SLSA) ===
+      - name: Attest Build Provenance
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: |
+            por_engine/por_engine.py
+            rsp_heatmap.py
+
