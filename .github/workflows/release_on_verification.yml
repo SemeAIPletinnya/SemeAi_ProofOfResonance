@@ -6,6 +6,9 @@ on:
     types:
       - completed
 
+permissions:
+  contents: write
+
 jobs:
   create-release:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -17,6 +20,8 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
+          run-id: ${{ github.event.workflow_run.id }}
+          repository: ${{ github.repository }}
           path: ./artifacts
 
       - name: Create GitHub Release
