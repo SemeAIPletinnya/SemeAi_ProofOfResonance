@@ -5,7 +5,7 @@ Epoch: Integration · 2025
 Hash Algorithm: SHA-256
 
 Root Verification Hash:
-13fe53e2f9c1fef25c3a2aa8683d78ac0c465b967e3a13aefb8ab38dce66f8a7
+78ba192a4a7c688f097e668853f21c6b86123ccc8a0cec02a915de87925f9764
 
 Linked Metadata:
 docs/Resonant_Auth_Metadata.json
