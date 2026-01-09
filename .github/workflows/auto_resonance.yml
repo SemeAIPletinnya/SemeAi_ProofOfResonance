@@ -74,6 +74,7 @@ jobs:
         path: |
           output/**
           *.png
+        if-no-files-found: warn
         retention-days: 14
 
     # -----------------------------
