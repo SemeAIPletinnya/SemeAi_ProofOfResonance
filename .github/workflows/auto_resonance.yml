@@ -53,7 +53,7 @@ jobs:
     # -----------------------------
     - name: Run Proof-of-Resonance Core
       run: |
-        python src/por_engine.py
+        python src/por_core.py
 
     # -----------------------------
     # Generate RSP Heatmap (optional)
