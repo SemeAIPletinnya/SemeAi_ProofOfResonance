@@ -5,6 +5,11 @@ on:
     branches: [ main ]
   pull_request:
 
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+
 jobs:
   validate:
     name: Validate PoR Engine (${{ matrix.python-version }})
@@ -81,7 +86,8 @@ jobs:
     # Build provenance (security)
     # -----------------------------
     - name: Generate Build Provenance
+      # OIDC id-token is only injected for trusted pushes to main; skip on PRs.
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: actions/attest-build-provenance@v1
-      if: success() && (github.event_name == 'workflow_run' || github.event_name == 'push')
       with:
         subject-path: "**/*"
