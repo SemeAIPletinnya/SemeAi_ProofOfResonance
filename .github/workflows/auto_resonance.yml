@@ -55,35 +55,23 @@ jobs:
           pip install numpy pandas matplotlib
 
       # ----------------------------
-      # Core validation (ALWAYS runs)
+      # Run PoR Core
       # ----------------------------
       - name: Run Proof-of-Resonance Core
-        run: python src/por_engine.py
+        run: python src/por_core.py
 
+      # ----------------------------
+      # RSP Heatmap (optional)
+      # ----------------------------
       - name: Run Resonant Stability Field (RSP Heatmap)
         if: success()
         run: python rsp_heatmap.py
 
       # ----------------------------
-      # Upload artifacts (optional)
+      # Upload artifacts
       # ----------------------------
       - name: Upload Resonant Artifacts
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: Resonant-Outputs
-          path: |
-            output/**
-            *.png
-          if-no-files-found: warn
-          retention-days: 14
-
-      # ----------------------------
-      # Provenance (ONLY trusted main pushes)
-      # ----------------------------
-      - name: Generate Build Provenance
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: "**/*"
-
