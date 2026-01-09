@@ -82,6 +82,6 @@ jobs:
     # -----------------------------
     - name: Generate Build Provenance
       uses: actions/attest-build-provenance@v1
-      if: success()
+      if: success() && (github.event_name == 'workflow_run' || github.event_name == 'push')
       with:
         subject-path: "**/*"
