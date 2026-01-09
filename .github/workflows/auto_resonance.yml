@@ -72,10 +72,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Resonant-Outputs
-          path: |
-            output/**
-            *.png
-          if-no-files-found: warn
+          path: .
+          if-no-files-found: ignore
           retention-days: 14
 
       # ----------------------------
@@ -86,4 +84,3 @@ jobs:
         uses: actions/attest-build-provenance@v1
         with:
           subject-path: "**/*"
-
