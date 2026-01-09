@@ -11,6 +11,17 @@ python src/resonance_simulator.py
 
 ---
 
+## Core (Те, з чого варто почати)
+
+- `src/por_kernel.py` — мінімальне математичне ядро PoR (coherence, drift, phase locking, silence gate).
+- `src/por_core.py` — базова реалізація PoR індексу та інтерпретації стану.
+
+## Raw history / Brain-dump (як усе нарощувалось)
+
+- `archive/SemeAi_ProofOfResonance.zip` — локальний архів матеріалів (файли, скріншоти, чернетки).
+
+---
+
 ### 🧭 Resonance Certification
 
 This repository is part of the **Proof-of-Resonance (PoR)** ecosystem —  
