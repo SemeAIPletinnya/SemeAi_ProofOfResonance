@@ -5,6 +5,11 @@ on:
     branches: [ main ]
   pull_request:
 
+permissions:
+  attestations: write
+  contents: read
+  id-token: write
+
 jobs:
   validate:
     name: Validate PoR Engine (${{ matrix.python-version }})
@@ -81,7 +86,7 @@ jobs:
     # Build provenance (security)
     # -----------------------------
     - name: Generate Build Provenance
+      if: github.event_name == 'push'
       uses: actions/attest-build-provenance@v1
-      if: success() && (github.event_name == 'workflow_run' || github.event_name == 'push')
       with:
         subject-path: "**/*"
