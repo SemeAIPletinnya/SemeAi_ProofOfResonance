@@ -42,7 +42,7 @@ jobs:
             exit 1
           fi
 
-                - name: Setup GitHub credentials
+      - name: Setup GitHub credentials
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
