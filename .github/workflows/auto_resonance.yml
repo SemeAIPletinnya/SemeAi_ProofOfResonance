@@ -86,7 +86,8 @@ jobs:
     # Build provenance (security)
     # -----------------------------
     - name: Generate Build Provenance
-      if: github.event_name == 'push'
+      # OIDC id-token is only injected for trusted pushes to main; skip on PRs.
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: actions/attest-build-provenance@v1
       with:
         subject-path: "**/*"
