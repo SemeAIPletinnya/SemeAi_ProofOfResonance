@@ -5,6 +5,10 @@ on:
     branches: [ main ]
   pull_request:
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   validate:
     name: Validate PoR Engine (${{ matrix.python-version }})
