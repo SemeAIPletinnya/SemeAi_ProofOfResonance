@@ -60,9 +60,7 @@ jobs:
       - name: Run Proof-of-Resonance Core
         run: python src/por_engine.py
 
-      - name: Run Resonant Stability Field (RSP Heatmap)
-        if: success()
-        run: python rsp_heatmap.py
+https://github.com/SemeAIPletinnya/PoR-Kernel-module-to-silence-as-control
 
       # ----------------------------
       # Upload artifacts (optional)
@@ -78,12 +76,4 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
-      # ----------------------------
-      # Provenance (ONLY trusted main pushes)
-      # ----------------------------
-      - name: Generate Build Provenance
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: "**/*"
 
